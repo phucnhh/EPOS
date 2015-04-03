@@ -1,0 +1,15 @@
+{
+  "name": "EPOS",
+  "main": "./index.html",
+  "version": "0.1.0",
+  "single-instance": true,
+  "window": {
+    "title": "Store application",
+    "width": 650,
+    "height": 650,
+    "min_width": 650,
+    "min_height": 650,
+    "toolbar": true
+  },
+  "chromium-args": "--child-clean-exit"
+}
