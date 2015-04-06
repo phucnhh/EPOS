@@ -30,6 +30,7 @@ module.exports = function(options) {
       exclude: [/jquery/]
     };
 
+
     return gulp.src(options.src + '/*.html')
       .pipe($.inject(injectStyles, injectOptions))
       .pipe($.inject(injectScripts, injectOptions))

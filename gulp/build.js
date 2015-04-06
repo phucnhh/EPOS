@@ -105,11 +105,12 @@ gulp.task('html-full', ['inject', 'partials'], function () {
 
   gulp.task('other', function () {
     return gulp.src([
-      options.src + '/**/*',
-      '!' + options.src + '/**/*.{html,css,js}'
-    ])
+      options.src + '/favicon.ico',
+      options.src + '/package.json',
+      options.src + '/node_modules/**/*'
+    ], { base: options.src})
       .pipe(gulp.dest(options.dist + '/'));
-  });
+  }); 
 
   gulp.task('clean', function (done) {
     $.del([options.dist + '/', options.tmp + '/'], done);

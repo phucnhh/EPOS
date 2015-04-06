@@ -1,11 +1,15 @@
-<md-toolbar layout="row" layout-align="center center" ng-controller="NavbarCtrl">
 
-  <md-button href="https://github.com/Swiip/generator-gulp-angular">EPOS</md-button>
-
-  <section flex layout="row" layout-align="left center">
-    <md-button href="#" class="md-raised">Ban hang</md-button>
-  </section>
-
-  <md-button href="#">Ngay hien tai: {{ date | date:'dd-MM-yyyy' }}</md-button>
-
+<md-toolbar layout="row" layout-align="space-around center"  ng-controller="NavbarCtrl">
+    <!--The left side-->
+    <div><h3>EPOS</h3></div>
+    <!--The right side-->
+    <div>
+	    <md-button aria-label="The Button" class="ml10"> BÁN HÀNG </md-button>
+    	<md-button aria-label="The Button" class="ml10"> KHO </md-button>
+	    <md-button aria-label="The Button" class="ml10"> BÁO CÁO </md-button>
+    </div>
+   
 </md-toolbar>
+
+
+

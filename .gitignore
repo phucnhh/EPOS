@@ -2,6 +2,7 @@ node_modules/
 bower_components/
 cache/
 build/
+src/node_modules/
 .sass-cache/
 .tmp/
 dist/

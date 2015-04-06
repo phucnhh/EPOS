@@ -1,0 +1,23 @@
+<div ng-controller="LoginCtrl" layout="row" layout-align="center center">
+    <div flex="35">
+        <md-whiteframe class="md-whiteframe-z1 mt100" layout="column" layout-align="left center">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    EPOS
+                </div>
+            </md-toolbar>
+            <form name="loginForm">
+              <md-input-container class="w90 mat">
+                <label>Tên đăng nhập</label>
+                <input name="username" ng-model="user.username" required md-maxlength="10" minlength="4"/>
+              </md-input-container>
+              <md-input-container class="w90 mat">
+                <label>Mật khẩu</label>
+                <input name="password" type="password" ng-model="user.password" required md-maxlength="20" minlength="6"/>
+              </md-input-container>
+              <div class="w90 mat"><md-button class="md-raised md-primary m5" ng-click="doLogin()">Đăng nhập</md-button></div>
+              <div class="w90 mat h10"></div>
+            </form>
+        </md-whiteframe>
+    </div>
+</div>
