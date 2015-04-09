@@ -1,64 +1,70 @@
 'use strict';
 angular.module('epos')
     .factory('openErp', function () {
-    		var jayson = require('jayson');
+    		try{
 
-			// variables keep information of session and cookie when request to server
-			var _session = null;
-			var _headers = {
-				Cookie: ''
-			};
+    			var jayson = require('jayson');
 
-			//check host, port and dbname, if there are null then set to default
-			var _host = 'localhost';
-			var _port = 8069;
-			var _dbName = 'ema';
+				// variables keep information of session and cookie when request to server
+				var _session = null;
+				var _headers = {
+					Cookie: ''
+				};
 
-			var clientKw = jayson.client.http({
-				port: _port,
-				hostname: _host,
-				path: '/web/dataset/call_kw',
-				encoding: 'UTF-8',
-				headers: _headers
-			});
+				//check host, port and dbname, if there are null then set to default
+				var _host = 'localhost';
+				var _port = 8069;
+				var _dbName = 'ema';
 
-			var clientButton = jayson.client.http({
-				port: _port,
-				hostname: _host,
-				path: '/web/dataset/call_button',
-				encoding: 'UTF-8',
-				headers: _headers
-			});
+				var clientKw = jayson.client.http({
+					port: _port,
+					hostname: _host,
+					path: '/web/dataset/call_kw',
+					encoding: 'UTF-8',
+					headers: _headers
+				});
 
-			var clientSearch = jayson.client.http({
-				port: _port,
-				hostname: _host,
-				path: '/web/dataset/search_read',
-				encoding: 'UTF-8',
-				headers: _headers
-			});
+				var clientButton = jayson.client.http({
+					port: _port,
+					hostname: _host,
+					path: '/web/dataset/call_button',
+					encoding: 'UTF-8',
+					headers: _headers
+				});
 
-			var clientExecWorkflow = jayson.client.http({
-				port: _port,
-				hostname: _host,
-				path: "/web/dataset/exec_workflow",
-				encoding: "UTF-8",
-				headers: _headers
-			});
+				var clientSearch = jayson.client.http({
+					port: _port,
+					hostname: _host,
+					path: '/web/dataset/search_read',
+					encoding: 'UTF-8',
+					headers: _headers
+				});
 
-			var clientAuth = jayson.client.http({
-				port: _port,
-				hostname: _host,
-				path: '/web/session/authenticate',
-				encoding: 'UTF-8'
-			});
+				var clientExecWorkflow = jayson.client.http({
+					port: _port,
+					hostname: _host,
+					path: "/web/dataset/exec_workflow",
+					encoding: "UTF-8",
+					headers: _headers
+				});
 
-			var clientLogout = jayson.client.http({
-				port: _port,
-				hostname: _host,
-				path: '/web/session/destroy',
-				encoding: 'UTF-8'
-			});
+				var clientAuth = jayson.client.http({
+					port: _port,
+					hostname: _host,
+					path: '/web/session/authenticate',
+					encoding: 'UTF-8'
+				});
+
+				var clientLogout = jayson.client.http({
+					port: _port,
+					hostname: _host,
+					path: '/web/session/destroy',
+					encoding: 'UTF-8'
+				});
+
+    		}catch(ex){
+
+    		}
 
 
 	        return {

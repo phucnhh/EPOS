@@ -95,7 +95,7 @@ gulp.task('html-full', ['inject', 'partials'], function () {
   });
 
   // Only applies for fonts from bower dependencies
-  // Custom fonts are handled by the "other" task
+  // Custom fonts are handled by the "other-font" task
   gulp.task('fonts', function () {
     return gulp.src($.mainBowerFiles())
       .pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
@@ -107,7 +107,8 @@ gulp.task('html-full', ['inject', 'partials'], function () {
     return gulp.src([
       options.src + '/favicon.ico',
       options.src + '/package.json',
-      options.src + '/node_modules/**/*'
+      options.src + '/node_modules/**/*',
+      options.src + '/assets/**/*'
     ], { base: options.src})
       .pipe(gulp.dest(options.dist + '/'));
   }); 

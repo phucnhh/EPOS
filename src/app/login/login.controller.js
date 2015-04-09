@@ -47,7 +47,7 @@ angular.module('epos')
               // hidden loading
               $rootScope.showLoading = false;
               // go to home page
-              $state.go('home');
+              $state.go('stock');
           });
         }, function(err){
           $saveApply($scope, function(){
