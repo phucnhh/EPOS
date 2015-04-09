@@ -1,14 +1,26 @@
 
-<md-toolbar layout="row" layout-align="space-around center"  ng-controller="NavbarCtrl">
-    <!--The left side-->
-    <div><h3>EPOS</h3></div>
+<md-toolbar layout="row" layout-align="end center"  ng-controller="NavbarCtrl">
+    <md-button md-no-ink aria-label="setting" class="ml10">
+    	<md-icon md-svg-icon="header-setting"></md-icon>
+    </md-button>
+    <span><h3>EPOS</h3></span>
+	<span flex></span>
     <!--The right side-->
-    <div>
-	    <md-button aria-label="The Button" class="ml10"> BÁN HÀNG </md-button>
-    	<md-button aria-label="The Button" class="ml10"> KHO </md-button>
-	    <md-button aria-label="The Button" class="ml10"> BÁO CÁO </md-button>
+    <div > 
+	    <md-button class="mr10 md-raised md-acent">
+	    	<md-icon md-svg-icon="nav-sale"></md-icon>
+	    	BÁN HÀNG
+	    </md-button>
+    	<md-button class="mr10 md-raised md-acent">
+    		<md-icon md-svg-icon="nav-stock"></md-icon>
+    	 	KHO 
+    	 </md-button>
+	    <md-button class="mr10 md-raised md-acent"> 
+	    	<md-icon md-svg-icon="nav-report"></md-icon>
+	    	BÁO CÁO 
+	    </md-button>
     </div>
-   
+   	
 </md-toolbar>
 
 
