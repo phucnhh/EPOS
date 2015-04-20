@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('epos')
-  .controller('LoginCtrl', ['$rootScope', '$scope', '$state', 'safeApply','toastMess', 'msg', 'openErp',function ($rootScope, $scope, $state, $saveApply, $toastMess, $msg, $openErp) {
+  .controller('LoginCtrl', ['$rootScope', '$scope', '$state', 'safeApply','toastMess', 'msg', 'openErp',
+    function ($rootScope, $scope, $state, $safeApply, $toastMess, $msg, $openErp) {
 
     /**
      * declare variable or function private*
@@ -43,14 +44,12 @@ angular.module('epos')
         // call services login of openerp
         $rootScope.showLoading = true;
         $openErp.doLogin($scope.user.username, $scope.user.password, function(res){
-          $saveApply($scope, function(){
-              // hidden loading
-              $rootScope.showLoading = false;
+          $safeApply($scope, function(){
               // go to home page
               $state.go('stock');
           });
         }, function(err){
-          $saveApply($scope, function(){
+          $safeApply($scope, function(){
             $rootScope.showLoading = false;
             if (err.error) {
               if (err.code === 500) {

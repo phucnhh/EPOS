@@ -1,25 +1,24 @@
+
 <md-whiteframe class="md-whiteframe-z1" layout="column" layout-align="left center">
 	
 	<md-toolbar layout="row" layout-align="start center" class="md-primary md-hue-3">
 		<div class="md-toolbar-tools">
-	     	 <span class="ml5">Chi tiết danh mục</span>
+	     	 <span class="ml5">Tạo danh mục</span>
 	    </div>	   
 	</md-toolbar>
 	<div  class="w90 mt10 ml10">
 		<form name="createCateForm" layout="column">
           <md-input-container class="w50 ml10">
             <label>Tên danh mục</label>
-            <input name="nameCate" ng-model="cate_name" required md-maxlength="20" minlength="4"/>
+            <input name="nameCate" ng-model="nameCate" required md-maxlength="20" minlength="4"/>
           </md-input-container>
 	     <div class="w50 ml10">
-	     	<md-select ng-model="cate_parent_id"  class="w50" placeholder="Danh mục cha">
-	     		  <md-select-label>{{ cate_parent_id ? getCategoryInListCateById(cate_parent_id).complete_name : '' }}</md-select-label>
-	     		  <md-option ng-value="null"></md-option>
+	     	<md-select ng-model="parentCate"  placeholder="--Danh mục cha--" class="w50">
 			      <md-option ng-value="cate.id" ng-repeat="cate in categories">{{cate.complete_name}}</md-option>
 		    </md-select>
 	     </div>
           <div class="w50 ml10 mt10">
-	          <md-button class="md-raised md-primary m5" ng-click="doUpdateCategory()">
+	          <md-button class="md-raised md-primary m5" ng-click="doCreateCategory()">
 	          	<md-icon md-svg-icon="btn-save"></md-icon>
 	            <span>Lưu</span>
 	          </md-button>

@@ -1,6 +1,9 @@
 'use strict';
+/**
+ * openerp provider support odoo version 8
+ */
 angular.module('epos')
-    .factory('openErp', function () {
+    .factory('openErp',['_', function (_) {
     		try{
 
     			var jayson = require('jayson');
@@ -61,6 +64,17 @@ angular.module('epos')
 					path: '/web/session/destroy',
 					encoding: 'UTF-8'
 				});
+
+				var buildContext = function(context){
+					if (context) {
+						var newContext = _.clone(_session.context);
+						Object.keys(context).forEach(function(key){
+							newContext[key] = context[key];
+						});
+						return newContext;
+					} 
+					return _session.context;
+				}
 
     		}catch(ex){
 
@@ -134,17 +148,16 @@ angular.module('epos')
 				
 				
 				doSearch : function(model, domain, fields, context, extensions, callbackSuccess, callbackError) {
-					extension = extension || {};
+					var extension = extensions || {};
 					var params = {
 						model: model,
-						domain: domain,
+						domain: domain || [],
 						fields: fields,
 						offset: extension.offset || 0,
 						limit: extension.limit || false,
-						sort: extension.sort || '',
-						session_id: _session.session_id,
-						context: context || _session.context
+						sort: extension.sort || ''
 					};
+					params.context = buildContext(context);
 					clientSearch.request('call', params,
 						function(err, error, response) {
 							if (err) {
@@ -165,17 +178,15 @@ angular.module('epos')
 				},
 
 
-				doCallKw : function(model, method, args, kwargs, context, callbackSuccess, callbackError) {
+				doCallKw : function(model, method, args, context, callbackSuccess, callbackError) {
 
 					var params = {
 						model: model,
 						method: method,
 						args: args,
-						session_id: _session.session_id,
-						context: context || _session.context,
-						kwargs: kwargs || {}
+						kwargs: {}
 					};
-
+					params.kwargs.context = buildContext(context);
 					clientKw.request('call', params, function(err, error, response) {
 						if (err) {
 							err.params = JSON.stringify(params);
@@ -271,4 +282,4 @@ angular.module('epos')
 				}
 
 	        };
-    });
+    }]);

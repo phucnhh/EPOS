@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('epos', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ngMaterial', 'toaster'])
+angular.module('epos', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ngMaterial', 'toaster', 'ui.grid', 'ui.grid.selection', 'ui.grid.selection'])
   .config(function ($stateProvider, $urlRouterProvider,  $mdIconProvider) {
     $stateProvider
       // stock view
@@ -25,6 +25,11 @@ angular.module('epos', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.r
               templateUrl: 'app/stock/stock.category/stock.category.detail/stock.category.detail.html',
               controller: 'StockCategoryDetailCtrl'
           })
+          .state('stock.category.create', {
+              url: '/create',
+              templateUrl: 'app/stock/stock.category/stock.category.create/stock.category.create.html',
+              controller: 'StockCategoryCreateCtrl'
+          })
       // sale view
       .state('sale', {
         url: '/sale',
@@ -42,11 +47,17 @@ angular.module('epos', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.r
 
      // Register icons in system
     $mdIconProvider
-        .icon('header-setting', 'assets/images/iconsvg/align14.svg')
-        .icon('nav-sale'      , 'assets/images/iconsvg/sale.svg')
-        .icon('nav-stock', 'assets/images/iconsvg/stock.svg' )
-        .icon('nav-report', 'assets/images/iconsvg/report.svg' )
-        .icon('stock-left-category', 'assets/images/iconsvg/category.svg', 32 );
+        .icon('header-setting', 'assets/images/svg/align14.svg')
+        .icon('nav-sale'      , 'assets/images/svg/sale.svg')
+        .icon('nav-stock', 'assets/images/svg/stock.svg' )
+        .icon('nav-report', 'assets/images/svg/report.svg' )
+        .icon('btn-delete', 'assets/images/svg/delete.svg', 16 )
+        .icon('btn-add', 'assets/images/svg/add.svg', 16 )
+        .icon('btn-save', 'assets/images/svg/save.svg', 16 )
+        .icon('stock-left-category', 'assets/images/svg/category.svg', 32 )
+        .icon('stock-left-product', 'assets/images/svg/product.svg', 32 )
+        .icon('stock-left-import', 'assets/images/svg/import_product.svg', 32 )
+        .icon('stock-left-inventory', 'assets/images/svg/inventory_product.svg', 32 );
   })
   .run(['$rootScope', 'cfg', 'openErp', function($rootScope, $cfg,$openErp){
 

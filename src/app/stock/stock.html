@@ -2,31 +2,31 @@
   <md-content>
     <header ng-include="'components/navbar/navbar.html'"></header>
   </md-content>
-  <div layout="row">
+  <div layout="row" class="mt10">
   <!-- menu left stock -->
 	 <div flex=10>
-      <md-list layout="column">
-        <md-list-item class="pt10 ml10 mr10" layout="row" layout-align="left center"> 
-          <md-button class="md-raised md-primary md-hue-3 w100">
+      <md-list layout="column" class="p0">
+        <md-list-item class="ml10 mr10" layout="row" layout-align="left center"> 
+          <md-button class="md-raised md-primary md-hue-3 w100" ng-click="goToCategoryPage()">
           <md-icon md-svg-icon="stock-left-category"></md-icon></br>
             <span>Danh mục</span>
           </md-button>
         </md-list-item>
         <md-list-item class="pt10 ml10 mr10" layout="row" layout-align="left center"> 
           <md-button class="md-raised md-accent md-hue-3 w100">
-          <md-icon md-svg-icon="stock-left-category"></md-icon></br>
+          <md-icon md-svg-icon="stock-left-product"></md-icon></br>
             <span>Sản phẩm</span>
           </md-button>
         </md-list-item>
         <md-list-item class="pt10 ml10 mr10" layout="row" layout-align="left center"> 
           <md-button class="md-raised md-primary w100">
-          <md-icon md-svg-icon="stock-left-category" ></md-icon></br>
+          <md-icon md-svg-icon="stock-left-import" ></md-icon></br>
             <span>Nhập hàng</span>
           </md-button>
         </md-list-item>
         <md-list-item class="pt10 ml10 mr10" layout="row" layout-align="left center"> 
           <md-button class="w100">
-          <md-icon md-svg-icon="stock-left-category" ></md-icon></br>
+          <md-icon md-svg-icon="stock-left-inventory" ></md-icon></br>
             <span>Kiểm hàng</span>
           </md-button>
         </md-list-item>
