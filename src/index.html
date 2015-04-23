@@ -8,6 +8,14 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
     <!-- bower:css -->
     <!-- run `gulp inject` to automatically populate bower styles dependencies -->
     <!-- endbower -->
@@ -23,11 +31,8 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
-    <div class="w100 h100 bgCTrans pf zi99999" ng-show="showLoading">
-     <div layout="column" layout-align="center center" class="exactCenter">
-        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-     </div>
+    <div class="w100 h100vh pf zi99999 csw" ng-show="countLoading > 0">
+      <div class="loading"></div>
     </div>
     <toaster-container></toaster-container>
     <div ui-view></div>

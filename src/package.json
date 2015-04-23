@@ -8,8 +8,7 @@
     "width": 650,
     "height": 650,
     "min_width": 650,
-    "min_height": 650,
-    "toolbar": true
+    "min_height": 650
   },
   "dependencies": {
     "jayson": "1.1.3",

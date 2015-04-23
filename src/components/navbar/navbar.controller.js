@@ -9,7 +9,7 @@ angular.module('epos')
   	/* declare $scope variables */
 
     /* declare $scope functions */
-    $scope.goToStockPage = function(){
+   /* $scope.goToStockPage = function(){
     	$safeApply($scope, function(){
         var nameCurrentState = $state.current.name;
         if (/^stock/.test(nameCurrentState)) {
@@ -18,5 +18,5 @@ angular.module('epos')
     		  $state.go('stock');
         }
     	});
-    };
+    };*/
   }]);

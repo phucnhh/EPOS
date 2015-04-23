@@ -1,12 +1,3 @@
-@font-face {
-    font-family: fontsys;
-    src: url('../assets/fonts/OpenSans-Regular.ttf');
-}
-
-html {
-  font-family: fontsys;
-}
-
 /** common class */
 
 @charset "utf-8";
@@ -118,6 +109,7 @@ html {
 .t20{top:20px;}
 .t25{top:25px;}
 .t30{top:30px;}
+.t_10{top:-10px;}
 
 /*set height px*/
 .h5{height:5px;}
@@ -140,6 +132,10 @@ html {
 .h90{height:90px;}
 .h95{height:95px;}
 .h100{height:100px;}
+.h150{height:150px;}
+.h200{height:200px;}
+.h300{height:300px;}
+.h500{height:500px;}
 
 /*set height by vh*/
 .h100vh{height: 100vh}
@@ -408,7 +404,7 @@ html {
 .wp1000{width:1000px;}
 
 /* set height */
-.h100{height:100%;}
+.hpt100{height:100%;}
 
 /*set color*/
 .clwhite{color:#ffffff;}
@@ -459,6 +455,7 @@ html {
 .pt10{padding-top:10px;}
 .pt15{padding-top:15px;}
 .pt20{padding-top:20px;}
+.pt30{padding-top:30px;}
 
 /*set padding left*/
 .pl0{padding-left:0px;}
@@ -468,6 +465,7 @@ html {
 .pl10{padding-left:10px;}
 .pl15{padding-left:15px;}
 .pl20{padding-left:20px;}
+.pl50{padding-left:50px;}
 
 /*set padding right*/
 .pr0{padding-right:0px;}
@@ -477,6 +475,8 @@ html {
 .pr10{padding-right:10px;}
 .pr15{padding-right:15px;}
 .pr20{padding-right:20px;}
+.pr50{padding-right:50px;}
+
 
 /*set margin*/
 .mA{margin:auto;}
@@ -512,6 +512,7 @@ html {
 .mb10{margin-bottom:10px;}
 .mb15{margin-bottom:15px;}
 .mb20{margin-bottom:20px;}
+.mb25{margin-bottom:25px;}
 .mb30{margin-bottom:30px;}
 
 
@@ -523,6 +524,8 @@ html {
 .mt10{margin-top:10px;}
 .mt15{margin-top:15px;}
 .mt20{margin-top:20px;}
+.mt25{margin-top:25px;}
+.mt50{margin-top:50px;}
 .mt100{margin-top:100px;}
 
 /*set margin left*/
@@ -564,6 +567,8 @@ html {
 .fs26{font-size:26px;}
 .fs18px{font-size:18px;}
 .fs20px{font-size:20px;}
+
+.fs80pc{font-size: 80%;}
 
 .bs5{box-shadow:5px 0px 10px 0px #999;-moz-box-shadow:5px 0px 10px 0px #999;-webkit-box-shadow:5px 0px 10px 0px #999;}
 /*set border-radius*/
@@ -685,11 +690,16 @@ html {
 .fwb{font-weight:bold;}
 .fwn{font-weight:normal;}
 
+
 /*set overflow*/
 .oh{overflow:hidden;}
 .oa{overflow:auto;}
 .oxa{overflow-x:auto;}
 .oya{overflow-y:auto;}
+
+.csw {
+	cursor: wait;
+}
 
 
 /**
@@ -697,7 +707,7 @@ html {
  */
  
 
-.exactCenter {
+.loading {
     width:200px;
     height:200px;
     position: fixed;
@@ -705,7 +715,11 @@ html {
     left: 50%;
     margin-top: -100px;
     margin-left: -100px;
+    z-index:99999;
     background: transparent;
+	background-image: url(../assets/img/loading.GIF);
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 
 
@@ -721,3 +735,5 @@ html {
 .ui-grid-cell-contents {
 	cursor: pointer;
 }
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

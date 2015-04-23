@@ -42,15 +42,16 @@ angular.module('epos')
         $toastMess.showToastError(msgs, 3000, null);
       } else {
         // call services login of openerp
-        $rootScope.showLoading = true;
+        $rootScope.countLoading += 1;
         $openErp.doLogin($scope.user.username, $scope.user.password, function(res){
           $safeApply($scope, function(){
+              $rootScope.countLoading -= 1;
               // go to home page
-              $state.go('stock');
+              $state.go('item');
           });
         }, function(err){
           $safeApply($scope, function(){
-            $rootScope.showLoading = false;
+            $rootScope.countLoading -= 1;
             if (err.error) {
               if (err.code === 500) {
                  $toastMess.showToastError($msg.err500, 3000, null);

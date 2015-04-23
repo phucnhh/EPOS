@@ -1,34 +1,46 @@
 'use strict';
 
-angular.module('epos', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ngMaterial', 'toaster', 'ui.grid', 'ui.grid.selection', 'ui.grid.selection'])
-  .config(function ($stateProvider, $urlRouterProvider,  $mdIconProvider) {
+angular.module('epos', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ui.bootstrap', 'toaster', 'ui.grid', 'ui.grid.selection', 'ui.grid.selection', 'ui.grid.autoResize',  'ui.grid.edit', 'ui.grid.cellNav'])
+  .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       // stock view
-      .state('stock', {
-        url: '/stock',
-        templateUrl: 'app/stock/stock.html',
-        controller: 'StockCtrl'
+      .state('item', {
+        url: '/item',
+        templateUrl: 'app/item/item.html',
+        controller: 'ItemCtrl'
       })
-          // stock-category
-          .state('stock.category', {
+          // item-category
+          .state('item.category', {
               url: '/category',
-              templateUrl: 'app/stock/stock.category/stock.category.html',
-              controller: 'StockCategoryCtrl'
+              templateUrl: 'app/item/item.category/item.category.html',
+              controller: 'ItemCategoryCtrl'
           })
-          .state('stock.category.list', {
+          .state('item.category.list', {
               url: '/list',
-              templateUrl: 'app/stock/stock.category/stock.category.list/stock.category.list.html',
-              controller: 'StockCategoryListCtrl'
+              templateUrl: 'app/item/item.category/item.category.list/item.category.list.html',
+              controller: 'ItemCategoryListCtrl'
           })
-          .state('stock.category.detail', {
+          .state('item.category.detail', {
               url: '/:id',
-              templateUrl: 'app/stock/stock.category/stock.category.detail/stock.category.detail.html',
-              controller: 'StockCategoryDetailCtrl'
+              templateUrl: 'app/item/item.category/item.category.detail/item.category.detail.html',
+              controller: 'ItemCategoryDetailCtrl'
           })
-          .state('stock.category.create', {
+          .state('item.category.create', {
               url: '/create',
-              templateUrl: 'app/stock/stock.category/stock.category.create/stock.category.create.html',
-              controller: 'StockCategoryCreateCtrl'
+              templateUrl: 'app/item/item.category/item.category.create/item.category.create.html',
+              controller: 'ItemCategoryCreateCtrl'
+          })
+
+          // item-product
+          .state('item.product', {
+              url: '/product',
+              templateUrl: 'app/item/item.product/item.product.html',
+              controller: 'ItemProductCtrl'
+          })
+           .state('item.product.create', {
+              url: '/create',
+              templateUrl: 'app/item/item.product/item.product.create/item.product.create.html',
+              controller: 'ItemProductCreateCtrl'
           })
       // sale view
       .state('sale', {
@@ -44,20 +56,6 @@ angular.module('epos', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.r
       });
 
     $urlRouterProvider.otherwise('/login');
-
-     // Register icons in system
-    $mdIconProvider
-        .icon('header-setting', 'assets/images/svg/align14.svg')
-        .icon('nav-sale'      , 'assets/images/svg/sale.svg')
-        .icon('nav-stock', 'assets/images/svg/stock.svg' )
-        .icon('nav-report', 'assets/images/svg/report.svg' )
-        .icon('btn-delete', 'assets/images/svg/delete.svg', 16 )
-        .icon('btn-add', 'assets/images/svg/add.svg', 16 )
-        .icon('btn-save', 'assets/images/svg/save.svg', 16 )
-        .icon('stock-left-category', 'assets/images/svg/category.svg', 32 )
-        .icon('stock-left-product', 'assets/images/svg/product.svg', 32 )
-        .icon('stock-left-import', 'assets/images/svg/import_product.svg', 32 )
-        .icon('stock-left-inventory', 'assets/images/svg/inventory_product.svg', 32 );
   })
   .run(['$rootScope', 'cfg', 'openErp', function($rootScope, $cfg,$openErp){
 
@@ -65,14 +63,13 @@ angular.module('epos', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.r
         // if project build same as node-webkit app, it is full screen
         var gui = require('nw.gui');
         var win = gui.Window.get();
-        win.showDevTools();
         win.maximize(); 
 
          // init param for openerp service
         $openErp.init($cfg.erphost, $cfg.erpport, $cfg.erpdb);
 
         // set showLoading is hidden
-        $rootScope.showLoading = false;
+        $rootScope.countLoading = 0;
 
       }
       catch (ex) {
