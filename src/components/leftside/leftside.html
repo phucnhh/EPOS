@@ -6,10 +6,10 @@
           </li>
         
           <li>
-              <a href="#"><i class="fa fa-shopping-cart fa-3x"></i> BÁN HÀNG</span></a>
+              <a href="#" class="{{getCurrentView() == 'sale' ? 'active-menu' : ''}}"><i class="fa fa-shopping-cart fa-3x"></i> BÁN HÀNG</span></a>
           </li>
            <li>
-              <a href="#"><i class="fa fa-edit fa-3x"></i> Quản lý sản phẩm</a>
+              <a href="#" class="{{getCurrentView() == 'item' ? 'active-menu' : ''}}"><i class="fa fa-edit fa-3x"></i> Quản lý sản phẩm</a>
                <ul class="nav nav-second-level">
                   <li>
                       <a href="#" ng-click="goToCategoryPage()">Danh mục</a>
@@ -20,7 +20,7 @@
               </ul>
           </li>    
           <li>
-              <a href="#"><i class="fa fa-table fa-3x"></i> Quản lý kho</a>
+              <a href="#" class="{{getCurrentView() == 'stock' ? 'active-menu': ''}}"><i class="fa fa-table fa-3x"></i> Quản lý kho</a>
                <ul class="nav nav-second-level">
                   <li>
                       <a href="#">Kiểm kho</a>
@@ -31,7 +31,7 @@
               </ul>
           </li>       
            <li>
-              <a href="#"><i class="fa fa-bar-chart-o fa-3x"></i> Báo cáo</a>
+              <a href="#" class="{{getCurrentView() == 'report' ? 'active-menu' : ''}}"><i class="fa fa-bar-chart-o fa-3x"></i> Báo cáo</a>
           </li>        
           
         </ul>
