@@ -119,9 +119,7 @@ angular.module('epos')
 	   * decalare $scope functions
 	   */
 	  $scope.goToCreateCategory = function(){
-	  	$safeApply($scope, function(){
-	  		$state.transitionTo('item.category.create');
-	  	});
+  		$state.transitionTo('item.category.create');
 	  }
 
 	  // load category from openerp when load this screen.

@@ -1,90 +1,64 @@
-<md-whiteframe class="md-whiteframe-z1" layout="column" layout-align="left center">
-	
-	<md-toolbar layout="row" layout-align="start center" class="md-accent md-hue-3">
-		<div class="md-toolbar-tools">
-	     	 <span class="ml5">Tạo sản phẩm</span>
-	    </div>	   
-	</md-toolbar>
-	<md-content class="md-padding">
-	<div  class="w100 mt10">
-		<form name="createProductForm" layout="column">
-		<div class="w100" layout="row">
-			<div class="w50">
-				<md-input-container class="w100">
-		            <label>Tên sản phẩm</label>
-		            <input name="nameProd" ng-model="nameProduct" required minlength="4"/>
-		         </md-input-container>
-			    <div class="w100">
-			     	<md-select ng-model="category"  placeholder="--Danh mục sản phẩm--">
-					      <md-option ng-value="cate.id" ng-repeat="cate in categories">{{cate.complete_name}}</md-option>
-				    </md-select>
-		     	</div>
+<div class="row">
+    <div class="col-md-12">
+     <h2>Tạo sản phẩm</h2>   
+     <h5>Màn hình tạo sản phẩm. </h5>
+    </div>
+</div>
+<hr></hr>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">Form tạo sản phẩm</div>
+			<div class="panel-body">
+				<h3>Nhập thông tin sản phẩm</h3>
+				<form role="form">
+					<fieldset>
+						<div class="form-group">
+							<label>Tên sản phẩm</label>
+							<input type="text" class="form-control" ng-model="nameProduct" placeholder="Nhập tên sản phẩm">
+						</div>
+						<div class="form-group">
+							<label>Danh mục</label>
+							<select class="form-control" ng-model="category" ng-options="cate.id as cate.complete_name for cate in categories"></select>
+						</div>
+						<div>
+							  <tabset>
+							    <tab heading="Thông tin chung">
+							    	<div class="col-md-6">
+							    		<div class="form-group">
+											<label>Mã sản phẩm</label>
+											<input type="text" class="form-control" ng-model="codeRefProduct" placeholder="Nhập mã sản phẩm">
+										</div>
+										<div class="form-group">
+											<label>Bar code</label>
+											<input type="text" class="form-control" ng-model="barcodeProduct" placeholder="Nhập barcode">
+											<div class="checkbox">
+                                                <label>
+                                                    <input value="false" type="checkbox" ng-model="autoCreateBarcode">Tạo Bar code
+                                                </label>
+                                            </div>
+										</div>
+							    	</div>
+							    	<div class="col-md-6">
+							    		<div class="form-group">
+											<label>Giá nhập</label>
+											<input type="number" ng-model="costPrice" class="form-control" ng-model="codeRefProduct" placeholder="Nhập giá nhập">
+											 <span>{{costPrice | currency:"VND ":0}}</span>
+										</div>
+										<div class="form-group">
+											<label>Giá bán</label>
+											<input type="number" ng-model="salePrice" class="form-control" ng-model="codeRefProduct" placeholder="Nhập giá bán">
+											<span>{{salePrice | currency:"VND ":0}}</span>
+										</div>
+							    	</div>
+							    </tab>
+							    <tab heading="Variant">Variant</tab>
+							  </tabset>
+						</div>
+						<a href="#" class="btn btn-primary"><i class="fa fa-check fa-lg"></i>Lưu</a>
+					</fieldset>
+				</form>
 			</div>
-			<div class="w50">
-				<md-input-container class="w100">
-		        	<label>Mô tả</label>
-		        	<textarea ng-model="descProduct" columns="1" md-maxlength="300"></textarea>
-		        </md-input-container>
-			</div>
-			
 		</div>
-         
-	     <div class="mt50">
-		     <md-tabs md-border-bottom>
-		     	<md-tab id="commonInfo">
-		     		<md-tab-label>Thông tin chung</md-tab-label>
-		     		<md-tab-body>
-		     			<div layout="row" flex>
-		     				<div layout="column" flex=50>
-		     					 <md-input-container class="w60">
-						            <label>Mã sản phẩm</label>
-						            <input name="codeRefproduct" ng-model="codeRefProduct" maxlength="10"/>
-						         </md-input-container>
-						         <div layout="row">
-						         	 <md-input-container>
-							            <label>Bar code</label>
-							            <input name="barcodeProduct" ng-model="barcodeProduct"/>
-							         </md-input-container>
-							         <div layout="row" layout-align"center center">
-							         	  <md-switch  ng-model="autoCreateBarcode" aria-label="Tạo Bar code">
-										   Tạo Bar code
-										  </md-switch>
-							         </div>
-						         </div>
-		     				</div>
-		     				<div layout="column" layout-align="center center" flex=50>
-		     					<md-input-container>
-						            <label>Giá nhập</label>
-						            <input type="number" name="costPrice" ng-model="costPrice"/>
-						        </md-input-container>
-						        <span>{{costPrice | currency:"VND ":0}}</span>
-						        <md-input-container>
-						            <label>Giá bán</label>
-						            <input type="number" name="salePrice" ng-model="salePrice"/>
-						        </md-input-container>
-					        	<span>{{salePrice | currency:"VND ":0}}</span>
-		     				</div>
-		     			</div>
-		     		</md-tab-body>
-		     	</md-tab>
-	     		<md-tab id="variant">
-		     		<md-tab-label>Variant</md-tab-label>
-		     		<md-tab-body layout="column">
-			     		<div id="gridAtt" ui-grid="gridAttOptions" ui-grid-auto-resize ui-grid-edit ui-grid-cellnav external-scopes="gridAttExtScope" class="grid w100 h150"></div>
-			     		<div>
-			     			<md-button class="md-primary"  target="_blank">Thêm dòng</md-button>
-			     		</div>
-		     		</md-tab-body>
-		     	</md-tab>
-		     </md-tabs>
-	     </div>
-          <div class="w100 ml10 mt10">
-	          <md-button class="md-raised md-primary m5">
-	          	<md-icon md-svg-icon="btn-save"></md-icon>
-	            <span>Lưu</span>
-	          </md-button>
-          </div>
-        </form>
 	</div>
-	</md-content>
-</md-whiteframe>
+</div>

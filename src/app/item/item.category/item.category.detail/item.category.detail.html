@@ -1,4 +1,4 @@
-<md-whiteframe class="md-whiteframe-z1" layout="column" layout-align="left center">
+<!-- <md-whiteframe class="md-whiteframe-z1" layout="column" layout-align="left center">
 	
 	<md-toolbar layout="row" layout-align="start center" class="md-primary md-hue-3">
 		<div class="md-toolbar-tools">
@@ -29,4 +29,34 @@
 	</div>
 	<div class="w100 ml10 h10"></div>
 
-</md-whiteframe>
+</md-whiteframe> -->
+<div class="row">
+    <div class="col-md-12">
+     <h2>Chi tiết danh mục</h2>   
+     <h5>Màn hình chi tiết danh mục của sản phẩm. </h5>
+    </div>
+</div>
+<hr></hr>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">Form sửa danh mục sản phẩm</div>
+			<div class="panel-body">
+				<h3>Chi tiết danh mục</h3>
+				<form role="form">
+					<fieldset>
+						<div class="form-group">
+							<label>Tên danh mục</label>
+							<input type="text" class="form-control" ng-model="cate_name" placeholder="Nhập tên danh mục">
+						</div>
+						<div class="form-group">
+							<label>Danh mục cha</label>
+							<select class="form-control" ng-model="cate_parent_id" ng-options="cate.id as cate.complete_name for cate in categories"></select>
+						</div>
+						<a href="#" class="btn btn-primary " ng-click="doUpdateCategory()"><i class="fa fa-check fa-lg"></i>Lưu</a>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

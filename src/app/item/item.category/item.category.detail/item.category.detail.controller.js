@@ -151,13 +151,6 @@ angular.module('epos')
       updateCategory(parseInt($stateParams.id, 10));
      };
 
-     $scope.getCategoryInListCateById = function(id){
-      return _.find($scope.categories, function(cate){
-          return cate.id === id;
-      });
-     }
-
-
 
   	// load category by id when load this screen
     loadAllCategory();
