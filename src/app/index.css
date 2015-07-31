@@ -685,6 +685,7 @@
 .dn{display:none;}
 .db{display:block;}
 .di{display:initial;}
+.dib{display: inline-block;}
 
 /*set font-weight*/
 .fwb{font-weight:bold;}

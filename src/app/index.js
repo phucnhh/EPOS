@@ -64,6 +64,7 @@ angular.module('epos', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.r
         var gui = require('nw.gui');
         var win = gui.Window.get();
         win.maximize(); 
+        win.showDevTools();
 
          // init param for openerp service
         $openErp.init($cfg.erphost, $cfg.erpport, $cfg.erpdb);

@@ -31,3 +31,30 @@ angular.module('epos')
 	'type': 'normal'
   }
 })
+
+/*constants of  model product.attribute*/
+.constant('product.attribute', {
+  'model': 'product.attribute',
+  'fields': {
+  	'id':'id',
+  	'name': 'name'
+  },
+  'defaultVal':{
+  	'name': "Name of attribute"
+  }
+})
+
+/*constants of  model product.attribute.value*/
+.constant('product.attribute.value', {
+  'model': 'product.attribute.value',
+  'fields': {
+  	'id':'id',
+  	'name': 'name',
+  	'attribute_id':'attribute_id'
+  },
+  'defaultVal':{
+  	'name': "Name of attribute value",
+  	'attribute_id': 0
+  }
+})
+

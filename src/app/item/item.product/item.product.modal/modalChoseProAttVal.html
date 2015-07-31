@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h3 class="modal-title">Chọn các giá trị</h3>
+</div>
+<div class="modal-body dib">
+        <div class="col-md-12">
+            <div class="col-md-5">
+               <input type="text" class="form-control w100" placeholder="Nhập giá trị"></input>
+               <ul class="list-group w100">
+                  <li class="list-group-item {{attributeValue.isSelecting?'active':''}}" ng-repeat="attributeValue in attributeValues" ng-click="addSelectingAttributeValue(attributeValue)">{{attributeValue.name}}</li>
+                </ul>     
+            </div>
+            <div class="col-md-2">
+                <a href="#" class="btn btn-primary" ng-click="selectAttributeValue()">
+                    <i class="fa  fa-arrow-right fa-lg">
+                </a>
+                <a href="#" class="btn btn-primary mt5" ng-click="unSelectAttributeValue()">
+                    <i class="fa  fa-arrow-left fa-lg">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <ul class="list-group w100">
+                <li class="list-group-item {{attributeValue.isSelecting?'active':''}}" ng-repeat="attributeValue in attributeSelectedValues" ng-click="addSelectingAttributeValueSelected(attributeValue)">{{attributeValue.name}}</li>
+                </ul>
+            </div>
+        </div>
+        
+</div>
+<div class="modal-footer">
+    <a href="#" class="btn btn-primary">Xác nhận</a>
+    <a href="#" class="btn btn-warning" ng-click="close()">Đóng</a>
+</div>
